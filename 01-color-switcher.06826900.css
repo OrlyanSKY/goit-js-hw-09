@@ -1,0 +1,2 @@
+.container{height:80vh;justify-content:center;align-items:center;display:flex}button{color:#131111;cursor:pointer;-webkit-user-select:none;-ms-user-select:none;user-select:none;background:linear-gradient(145deg,#f0f0f0,#cacaca);border:none;border-radius:50%;margin-right:15px;padding:20px;font-size:20px;transition:all .2s cubic-bezier(.47,0,.745,.715);box-shadow:5px 5px 18px #727272,-5px -5px 18px #fff}button:hover{color:red;outline:none;transform:scale(.8)}
+/*# sourceMappingURL=01-color-switcher.06826900.css.map */
