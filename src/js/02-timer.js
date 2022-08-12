@@ -1,13 +1,16 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
-const timerInput = document.querySelector('#datetime-picker');
+const btnStart = document.querySelector('[data-start]');
+const timer = document.querySelector('.timer');
+ const timerInput = document.querySelector('#datetime-picker');
 const fp = flatpickr(timerInput, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+    const selectedData = selectedDates;
+    console.log(selectedData);
   },
 });
