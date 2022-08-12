@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+button {
+  padding: 20px;
+
+  border: none;
+  background-color: red;
+  color: rgb(19, 17, 17);
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 200ms cubic-bezier(0.47, 0, 0.745, 0.715);
+  margin-right: 15px;
+  user-select: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 5px 5px 18px #727272, -5px -5px 18px #ffffff;
+}
+button:hover {
+  outline: none;
+  transform: scale(0.8);
+  color: red;
+}

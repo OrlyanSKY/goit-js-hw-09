@@ -16,7 +16,6 @@ refs.startBtn.addEventListener('click', () => {
 refs.stopBtn.addEventListener('click', () => {
   clearInterval(intervalId);
   refs.startBtn.removeAttribute('disabled', '');
-  refs.startBtn.setAttribute('undisabled', '');
 });
 
 function getRandomHexColor() {
