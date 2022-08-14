@@ -32,6 +32,7 @@ const options = {
 };
 
 let timerStartTime = null;
+let isTimerRun = false;
 
 btnStart.setAttribute('disabled', '');
 const fp = flatpickr(timerInput, options);
@@ -41,8 +42,14 @@ btnStart.addEventListener('click', () => {
 });
 
 function timerStart(selectedDates) {
+  if (isTimerRun) {
+    Notify.success('Timer is alredy run!');
+    return;
+  }
+
   const timerId = setInterval(() => {
     let differenceInTime = selectedDates - Date.now();
+    isTimerRun = true;
 
     if (differenceInTime < 0) {
       stopTimer(timerId);
@@ -61,6 +68,8 @@ function timerRender(obj) {
 function stopTimer(timerID) {
   clearInterval(timerID);
   Notify.success('Timer off');
+  isTimerRun = false;
+  btnStart.setAttribute('disabled', '');
 }
 
 function convertMs(ms) {
