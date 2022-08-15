@@ -24,17 +24,17 @@ const options = {
   },
   onChange(selectedDates) {
     if (selectedDates[0] > Date.now()) {
-      btnStart.removeAttribute('disabled', '');
+      btnStart.disabled = false;
     } else {
-      btnStart.setAttribute('disabled', '');
+      btnStart.disabled = true;
     }
   },
 };
 
 let timerStartTime = null;
 let isTimerRun = false;
+btnStart.disabled = true;
 
-btnStart.setAttribute('disabled', '');
 const fp = flatpickr(timerInput, options);
 
 btnStart.addEventListener('click', () => {
@@ -69,7 +69,7 @@ function stopTimer(timerID) {
   clearInterval(timerID);
   Notify.success('Timer off');
   isTimerRun = false;
-  btnStart.setAttribute('disabled', '');
+  btnStart.disabled = true;
 }
 
 function convertMs(ms) {

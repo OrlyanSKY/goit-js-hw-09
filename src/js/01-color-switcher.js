@@ -10,12 +10,15 @@ refs.startBtn.addEventListener('click', () => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 
-  refs.startBtn.setAttribute('disabled', '');
+  refs.startBtn.disabled = true;
+  refs.stopBtn.disabled = false;
 });
 
 refs.stopBtn.addEventListener('click', () => {
   clearInterval(intervalId);
-  refs.startBtn.removeAttribute('disabled', '');
+
+  refs.startBtn.disabled = false;
+  refs.stopBtn.disabled = true;
 });
 
 function getRandomHexColor() {
