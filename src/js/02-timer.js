@@ -4,7 +4,6 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const btnStart = document.querySelector('[data-start]');
-const timer = document.querySelector('.timer');
 const timerInput = document.querySelector('#datetime-picker');
 
 const options = {

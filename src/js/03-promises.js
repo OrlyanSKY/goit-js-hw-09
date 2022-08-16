@@ -10,6 +10,7 @@ form.addEventListener('submit', evt => {
   const amount = Number(evt.currentTarget.elements['amount'].value);
 
   toGeneratePromises(delay, step, amount);
+  evt.target.reset();
 });
 
 function createPromise(position, delay) {
