@@ -19,8 +19,14 @@ button {
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   box-shadow: 5px 5px 18px #727272, -5px -5px 18px #ffffff;
 }
+button[disabled] {
+  color: red;
+  cursor: no-drop;
+}
+button[disabled]:hover {
+  transform: none;
+}
 button:hover {
   outline: none;
   transform: scale(0.8);
-  color: red;
 }
