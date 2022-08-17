@@ -39,7 +39,6 @@ function timerStart(selectedDates) {
 
   timerId = setInterval(() => {
     let differenceInTime = selectedDates - Date.now();
-    isTimerRun = true;
 
     if (differenceInTime < 0) {
       stopTimer(timerId);
@@ -57,7 +56,6 @@ function timerRender(obj) {
 }
 function stopTimer(timerID) {
   clearInterval(timerID);
-  // Notify.success('Timer off');
 }
 
 function convertMs(ms) {
