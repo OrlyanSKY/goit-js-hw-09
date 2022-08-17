@@ -1,6 +1,5 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const btnStart = document.querySelector('[data-start]');
@@ -12,27 +11,22 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < Date.now()) {
-      Report.failure(
-        'IT was in the PAST!',
-        'Please choose a date in the future',
-        'OK'
-      );
-    }
     timerStartTime = selectedDates[0];
   },
   onChange(selectedDates) {
     if (selectedDates[0] > Date.now()) {
       btnStart.disabled = false;
+      Notify.success(`Ok. Let's go`);
     } else {
       btnStart.disabled = true;
+      Notify.failure('Please choose a date in the future');
     }
+    stopTimer(timerId);
+    timerRender(convertMs(0));
   },
 };
-
 let timerStartTime = null;
-let isTimerRun = false;
-btnStart.disabled = true;
+let timerId = null;
 
 const fp = flatpickr(timerInput, options);
 
@@ -41,12 +35,9 @@ btnStart.addEventListener('click', () => {
 });
 
 function timerStart(selectedDates) {
-  if (isTimerRun) {
-    Notify.success('Timer is alredy run!');
-    return;
-  }
+  btnStart.disabled = true;
 
-  const timerId = setInterval(() => {
+  timerId = setInterval(() => {
     let differenceInTime = selectedDates - Date.now();
     isTimerRun = true;
 
@@ -66,9 +57,7 @@ function timerRender(obj) {
 }
 function stopTimer(timerID) {
   clearInterval(timerID);
-  Notify.success('Timer off');
-  isTimerRun = false;
-  btnStart.disabled = true;
+  // Notify.success('Timer off');
 }
 
 function convertMs(ms) {

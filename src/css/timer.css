@@ -1,11 +1,24 @@
 button {
+  color: rgb(119, 118, 115);
   padding: 15px;
+  cursor: pointer;
   border: none;
   user-select: none;
   border-radius: 50%;
   background: linear-gradient(145deg, #f1dcdc, #b60e0e);
   box-shadow: 5px 5px 18px #727272, -5px -5px 18px #ffffff;
   font-size: 20px;
+  transition: transform 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+button[disabled] {
+  cursor: no-drop;
+  color: rgb(230, 221, 221);
+}
+button:hover {
+  transform: scale(0.9);
+}
+button[disabled]:hover {
+  transform: none;
 }
 input {
   padding: 20px;
