@@ -17,12 +17,12 @@ const options = {
     if (selectedDates[0] > Date.now()) {
       btnStart.disabled = false;
       Notify.success(`Ok. Let's go`);
+      stopTimer(timerId);
+      timerRender(convertMs(0));
     } else {
       btnStart.disabled = true;
       Notify.failure('Please choose a date in the future');
     }
-    stopTimer(timerId);
-    timerRender(convertMs(0));
   },
 };
 let timerStartTime = null;
